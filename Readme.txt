@@ -1,0 +1,1 @@
+Ainda estou trabalhando numa versão .exe
