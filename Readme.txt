@@ -9,3 +9,5 @@ Como jogar:
 -Divirta-se!
 
 Ainda estou trabalhando numa versão .exe pra ontem!!!
+
+Quando eu escrevi esse código, Deus e eu sabiamos como ele funcionava. Hoje, só Deus.
