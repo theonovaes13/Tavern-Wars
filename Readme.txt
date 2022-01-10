@@ -8,6 +8,6 @@ Como jogar:
 -Execute a funcao Main
 -Divirta-se!
 
-Ainda estou trabalhando numa versão .exe pra ontem!!!
-
 Quando eu escrevi esse código, Deus e eu sabiamos como ele funcionava. Hoje, só Deus.
+
+Um dia eu pretendo revisitar esse jogo e futucar em mais algumas coisas, mas acho que ele vai ficar como história mesmo - 10/01/2022
