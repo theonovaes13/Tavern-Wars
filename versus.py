@@ -19,7 +19,7 @@ def controle():
 def vidas(objeto, vidas):
     lista = []
     for x in range(vidas):
-        coracao = Sprite('spritesheet\gameplay\HUD\coracao.png')
+        coracao = Sprite('spritesheet/gameplay/HUD/coracao.png')
         coracao.set_position(50 + (objeto.x + (coracao.width* x)), objeto.y + 25)
         lista.append(coracao)
     return lista
