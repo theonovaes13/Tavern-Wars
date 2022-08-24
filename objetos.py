@@ -34,8 +34,8 @@ teclado = Window.get_keyboard()
 
 #cenadomenu
 placadomeio = Sprite("spritesheet/menu/placa central.png")
-versus = Sprite("spritesheet/menu/bandeira esq.png")
-challenge = Sprite("spritesheet/menu/bandeira dir.png")
+versus = Sprite("spritesheet/menu/Bandeira esq.png")
+challenge = Sprite("spritesheet/menu/Bandeira dir.png")
 botaoAudio = Sprite("spritesheet/menu/audio.png")
 fundoMenu = GameImage("spritesheet/menu/fundomenu.png")
 howtoplay = Sprite("spritesheet/menu/howto.png")
