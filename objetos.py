@@ -12,18 +12,25 @@ keyboard = Window.get_keyboard()
 
 GAMESTATE = 2
 
-contadorvidas1 = 0
-contadorvidas2 = 0
+damage_counter = {
+    "player_one": 0,
+    "player_two": 0
+}
 
 abebebikila = 0
+
+player_lives = {
+    "player_one": 3,
+    "player_two": 3
+}
 vidas1 = 3
 vidas2 = 3
 
-angulomira = 0
+aim_angle = 0
 vez = 1
 atirar = 1
 atirou = 0
-biri = 0
+gauged_power = 0
 lancabomba = 0
 power1 = 0
 gravidade = 0
@@ -45,14 +52,14 @@ mouseplay = Sprite("spritesheet/menu/playcima.png")
 
 
 #cenatutorial
-fundohowto = Sprite("spritesheet/howtoplay/bg.png")
-angulo = Sprite("spritesheet/howtoplay/angulo.png")
-texto = Sprite("spritesheet/howtoplay/texto.png")
-botaopower = Sprite("spritesheet/howtoplay/botaopower.png")
-setas = Sprite("spritesheet/howtoplay/setadireita.png")
-barra = Sprite("spritesheet/howtoplay/spacebar.png")
-voltar = Sprite("spritesheet/howtoplay/config.png")
-voltarselecionado = Sprite("spritesheet/howtoplay/voltarselecionado.png")
+tutorial_background = Sprite("spritesheet/howtoplay/bg.png")
+tutorial_angle_example = Sprite("spritesheet/howtoplay/angulo.png")
+tutorial_text = Sprite("spritesheet/howtoplay/texto.png")
+power_button = Sprite("spritesheet/howtoplay/botaopower.png")
+arrow_keys = Sprite("spritesheet/howtoplay/setadireita.png")
+spacebar = Sprite("spritesheet/howtoplay/spacebar.png")
+back_button = Sprite("spritesheet/howtoplay/config.png")
+selected_back_button = Sprite("spritesheet/howtoplay/voltarselecionado.png")
 
 #versus
 arvore1 = Sprite("spritesheet/gameplay/tileset/campos/arvore1.png")
@@ -97,7 +104,7 @@ vida2 = Sprite("spritesheet/gameplay/HUD/barradevida2.png")
 vida1.set_position(10,10)
 vida2.set_position((window.width - vida2.width)- 10, 10)
 
-mira = Sprite("spritesheet/gameplay/mira.png")
+crosshair = Sprite("spritesheet/gameplay/mira.png")
 
 #background
 ceu = Sprite("spritesheet/gameplay/tileset/background/ceu.png")
@@ -133,13 +140,13 @@ play.set_position((window.width - play.width)/2,(howtoplay.y + howtoplay.height)
 mouseplay.set_position(play.x, play.y)
 
 #tutorial
-angulo.set_position(40,40)
-texto.set_position(angulo.x + 500, 100)
+tutorial_angle_example.set_position(40,40)
+tutorial_text.set_position(tutorial_angle_example.x + 500, 100)
 
-voltar.set_position(50, (window.height - voltar.height - 50))
-setas.set_position(texto.x, (texto.y + texto.height + 50))
-barra.set_position((setas.x + setas.width + 50), setas.y + setas.height - barra.height)
-voltarselecionado.set_position(voltar.x, voltar.y)
+back_button.set_position(50, (window.height - back_button.height - 50))
+arrow_keys.set_position(tutorial_text.x, (tutorial_text.y + tutorial_text.height + 50))
+spacebar.set_position((arrow_keys.x + arrow_keys.width + 50), arrow_keys.y + arrow_keys.height - spacebar.height)
+selected_back_button.set_position(back_button.x, back_button.y)
 
 chaoesquerda.set_position(0, (window.height - chaoesquerda.height))
 pedraesq.set_position((chaoesquerda.x + chaoesquerda.width),

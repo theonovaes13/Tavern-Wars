@@ -4,11 +4,11 @@ from versus import *
 
 
 def main_menu():
-        global GAMESTATE, contadorvidas2, contadorvidas1
+        global GAMESTATE, damage_counter
         if GAMESTATE == 2:
             trilhaMenu.play()
-            contadorvidas2 = 0
-            contadorvidas1 = 0
+            damage_counter["player_two"] = 0
+            damage_counter["player_one"] = 0
             fundoMenu.draw()
             placadomeio.draw()
             versus.draw()
@@ -26,22 +26,22 @@ def main_menu():
                     trilhaMenu.stop()
                     trilhaJogo.play()
 
-            return contadorvidas1, contadorvidas2
+            return damage_counter
 
 
 def tutorial():
     global GAMESTATE
     if GAMESTATE == 3:
-        botaopower.set_position(angulo.x, (angulo.y + angulo.height + 100))
-        fundohowto.draw()
-        angulo.draw()
-        texto.draw()
-        barra.draw()
-        botaopower.draw()
-        setas.draw()
-        voltar.draw()
-        if mouse.is_over_object(voltar):
-            voltarselecionado.draw()
+        power_button.set_position(tutorial_angle_example.x, (tutorial_angle_example.y + tutorial_angle_example.height + 100))
+        tutorial_background.draw()
+        tutorial_angle_example.draw()
+        tutorial_text.draw()
+        spacebar.draw()
+        power_button.draw()
+        arrow_keys.draw()
+        back_button.draw()
+        if mouse.is_over_object(back_button):
+            selected_back_button.draw()
             if mouse.is_button_pressed(1):
                 GAMESTATE = 2
 
@@ -51,15 +51,15 @@ def tutorial():
 
 
 def versus_mode():
-    global GAMESTATE, abebebikila, vidas1, vidas2, contadorvidas1, contadorvidas2
+    global GAMESTATE, abebebikila, vidas1, vidas2, damage_counter
     if abebebikila == 1:
         GAMESTATE = 2
         abebebikila = 0
         window.delay(20)
         vidas1 = 3
         vidas2 = 3
-        contadorvidas1 = 0
-        contadorvidas2 = 0
+        damage_counter["player_one"] = 0
+        damage_counter["player_two"] = 0
     if GAMESTATE == 4:
         ceu.draw()
         nuvens.draw()
@@ -73,8 +73,8 @@ def versus_mode():
         player_2["idle"].draw()
         player_1["attack"].draw()
         player_2["attack"].draw()
-        miratiro1()
-        tiro1()
+        bomb_aim()
+        attack()
         animacaoDano()
         controle()
         abebebikila = endgame()
