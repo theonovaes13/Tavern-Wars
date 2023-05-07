@@ -3,15 +3,15 @@
 from menu import *
 
 while 1:
-    mainmenu()
+    main_menu()
     tutorial()
-    versusmode()
-    janela.update()
-    player1idle.update()
-    player2idle.update()
-    player1attack.update()
-    player2attack.update()
-    player1dano.update()
-    player2dano.update()
+    versus_mode()
+    window.update()
+    player_1["idle"].update()
+    player_2["idle"].update()
+    player_1["attack"].update()
+    player_2["attack"].update()
+    player_1["damage"].update()
+    player_2["damage"].update()
 
 
