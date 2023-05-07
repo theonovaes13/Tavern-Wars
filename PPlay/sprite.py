@@ -21,7 +21,7 @@ class Sprite(animation.Animation):
         # Parent's constructor must be first-called
         animation.Animation.__init__(self, image_file, frames)
 
-    """Permite a movimentação com o teclado no eixo X"""
+    """Permite a movimentação com o keyboard no eixo X"""
     def move_key_x(self, speed):
         if(window.Window.get_keyboard().key_pressed("left")):
             self.set_position(self.x - speed, self.y)
