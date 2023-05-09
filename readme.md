@@ -25,7 +25,7 @@ Que esse projeto sirva de pontapé inicial pra uma longa jornada no mundo do gam
 - Seja feliz!
 
 ## Agradecimentos:
-- Agradeço ao meu professor, [Ricardo Fabbri](http://www.ic.uff.br/index.php/pt/pessoas/168-docente?docente=22)
+- Agradeço ao meu professor, [Esteban Clua](http://www.ic.uff.br/index.php/pt/pessoas/168-docente?docente=22)
 por me instigar inicialmente a entrar no mundo da programação de jogos
 - Agradeço ao meu amigo [Kup](https://github.com/kupkovski) por me ajudar com o código
 e me mostrar que ainda tinha salvação
