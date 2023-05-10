@@ -74,7 +74,7 @@ def bomb_aim():
 
 def attack():
     global keyboard, vez, atirar, atirou, gauged_power, lancabomba, power1, vertical_velocity, \
-        horizontal_velocity, gravidade, vidas2, vidas1, libera1, libera2, damage_counter
+        horizontal_velocity, gravidade, vidas2, vidas1, libera1, libera2, DAMAGE_COUNTER
     vertical_velocity = power1 * sin(aim_angle) + fabs(gravidade)
     horizontal_velocity = power1 * cos(aim_angle)
     power_gauge = 1
@@ -117,7 +117,7 @@ def attack():
                     player_2["damage"].set_curr_frame(0)
                     libera2 = 1
                     lancabomba = 0
-                    damage_counter["player_two"] += 1
+                    DAMAGE_COUNTER["player_two"] += 1
                     vidas2 -= 1
                     vez = 2
                     atirar = 1
@@ -168,7 +168,7 @@ def attack():
                     player_1["damage"].set_curr_frame(0)
                     libera1 = 1
                     lancabomba = 0
-                    damage_counter["player_one"] += 1
+                    DAMAGE_COUNTER["player_one"] += 1
                     vidas1 -= 1
                     vez = 1
                     atirar = 1
@@ -200,20 +200,20 @@ def animacaoDano():
     return
 
 def endgame():
-    global damage_counter, mouse, GAMESTATE, vez, abebebikila, vidas2, vidas1, vez
-    if damage_counter["player_two"] == 3 or damage_counter["player_one"] == 3:
-        bg.draw()
-        fechar.draw()
-        main_menuu.draw()
-        if damage_counter["player_one"] == 3:
-            p2wins.draw()
-        if damage_counter["player_two"] == 3:
-            p1wins.draw()
-        if mouse.is_over_object(main_menuu):
+    global DAMAGE_COUNTER, mouse, GAMESTATE, vez, abebebikila, vidas2, vidas1, vez
+    if DAMAGE_COUNTER["player_two"] == 3 or DAMAGE_COUNTER["player_one"] == 3:
+        endgame_background_button.draw()
+        close_button.draw()
+        main_menu_button.draw()
+        if DAMAGE_COUNTER["player_one"] == 3:
+            player_two_wins.draw()
+        if DAMAGE_COUNTER["player_two"] == 3:
+            player_one_wins.draw()
+        if mouse.is_over_object(main_menu_button):
             if mouse.is_button_pressed(1):
                 abebebikila = 1
-                damage_counter["player_one"] = 0
-                damage_counter["player_two"] = 0
+                DAMAGE_COUNTER["player_one"] = 0
+                DAMAGE_COUNTER["player_two"] = 0
                 vidas1 = 3
                 vidas2 = 3
                 vez = 1
@@ -221,7 +221,20 @@ def endgame():
                 trilhaJogo.stop()
                 trilhaMenu.play()
                 return abebebikila
-        if mouse.is_over_object(fechar):
+        if mouse.is_over_object(close_button):
             if mouse.is_button_pressed(1):
                 window.close()
     return
+
+def update_sprites():
+    player_1["idle"].update()
+    player_1["attack"].update()
+    player_1["damage"].update()
+    player_2["idle"].update()
+    player_2["attack"].update()
+    player_2["damage"].update()
+    return
+
+def reset_game_values():
+    return
+

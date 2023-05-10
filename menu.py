@@ -1,14 +1,14 @@
 from objetos import *
 from versus import *
-
+from constants import *
 
 
 def main_menu():
-        global GAMESTATE, damage_counter
-        if GAMESTATE == 2:
+        global GAMESTATE, DAMAGE_COUNTER
+        if GAMESTATE == GAMESTATE_VALUES["MAIN_MENU"]:
             trilhaMenu.play()
-            damage_counter["player_two"] = 0
-            damage_counter["player_one"] = 0
+            DAMAGE_COUNTER["player_two"] = 0
+            DAMAGE_COUNTER["player_one"] = 0
             fundoMenu.draw()
             placadomeio.draw()
             versus.draw()
@@ -26,12 +26,12 @@ def main_menu():
                     trilhaMenu.stop()
                     trilhaJogo.play()
 
-            return damage_counter
+            return DAMAGE_COUNTER
 
 
 def tutorial():
     global GAMESTATE
-    if GAMESTATE == 3:
+    if GAMESTATE == GAMESTATE_VALUES["TUTORIAL"]:
         power_button.set_position(tutorial_angle_example.x, (tutorial_angle_example.y + tutorial_angle_example.height + 100))
         tutorial_background.draw()
         tutorial_angle_example.draw()
@@ -51,16 +51,16 @@ def tutorial():
 
 
 def versus_mode():
-    global GAMESTATE, abebebikila, vidas1, vidas2, damage_counter
+    global GAMESTATE, abebebikila, vidas1, vidas2, DAMAGE_COUNTER
     if abebebikila == 1:
-        GAMESTATE = 2
+        GAMESTATE = GAMESTATE_VALUES["MAIN_MENU"]
         abebebikila = 0
         window.delay(20)
         vidas1 = 3
         vidas2 = 3
-        damage_counter["player_one"] = 0
-        damage_counter["player_two"] = 0
-    if GAMESTATE == 4:
+        DAMAGE_COUNTER["player_one"] = 0
+        DAMAGE_COUNTER["player_two"] = 0
+    if GAMESTATE == GAMESTATE_VALUES["VERSUS_MODE"]:
         ceu.draw()
         nuvens.draw()
         chaoesquerda.draw()

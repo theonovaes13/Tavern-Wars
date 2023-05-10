@@ -1,3 +1,4 @@
+from constants import *
 from PPlay.window import *
 from PPlay.sprite import *
 from PPlay.gameimage import *
@@ -10,19 +11,10 @@ window.set_title("TAVERN WARS")
 mouse = Window.get_mouse()
 keyboard = Window.get_keyboard()
 
-GAMESTATE = 2
-
-damage_counter = {
-    "player_one": 0,
-    "player_two": 0
-}
+GAMESTATE = GAMESTATE_VALUES["MAIN_MENU"]
 
 abebebikila = 0
 
-player_lives = {
-    "player_one": 3,
-    "player_two": 3
-}
 vidas1 = 3
 vidas2 = 3
 
@@ -179,26 +171,26 @@ player_2["damage"].set_position(player_2["idle"].x, player_2["idle"].y)
 
 
 #endgame menu popup
-bg = Sprite("spritesheet/endgame/bg.png")
-fechar = Sprite("spritesheet/endgame/fechar.png")
-main_menuu = Sprite("spritesheet/endgame/main menu.png")
+endgame_background_button = Sprite("spritesheet/endgame/bg.png")
+close_button = Sprite("spritesheet/endgame/close_button.png")
+main_menu_button = Sprite("spritesheet/endgame/main menu.png")
 playagain = Sprite("spritesheet/endgame/playagain.png")
-p1wins = Sprite("spritesheet/endgame/p1wins.png")
-p2wins = Sprite("spritesheet/endgame/p2wins.png")
+player_one_wins = Sprite("spritesheet/endgame/player_one_wins.png")
+player_two_wins = Sprite("spritesheet/endgame/player_two_wins.png")
 
-bg.set_position((window.width - bg.width)/2, (window.height - bg.height)/2)
-fechar.set_position(((bg.x + bg.width) - fechar.width), bg.y)
-main_menuu.set_position((bg.x + bg.width) /2, (bg.y + bg.height)/2)
-playagain.set_position(main_menuu.x, (main_menuu.y + main_menuu.height + 30))
-p1wins.set_position((((bg.x + bg.width) - p1wins.width) /2) + 50, bg.y + 50)
-p2wins.set_position((((bg.x + bg.width) - p1wins.width) /2) + 50, bg.y + 50)
+endgame_background_button.set_position((window.width - endgame_background_button.width)/2, (window.height - endgame_background_button.height)/2)
+close_button.set_position(((endgame_background_button.x + endgame_background_button.width) - close_button.width), endgame_background_button.y)
+main_menu_button.set_position((endgame_background_button.x + endgame_background_button.width) /2, (endgame_background_button.y + endgame_background_button.height)/2)
+playagain.set_position(main_menu_button.x, (main_menu_button.y + main_menu_button.height + 30))
+player_one_wins.set_position((((endgame_background_button.x + endgame_background_button.width) - player_one_wins.width) /2) + 50, endgame_background_button.y + 50)
+player_two_wins.set_position((((endgame_background_button.x + endgame_background_button.width) - player_one_wins.width) /2) + 50, endgame_background_button.y + 50)
 
 chute = Sound("sons/chute.ogg")
 dor = Sound("sons/HURT.ogg")
 chute.load("sons/chute.ogg")
 dor.load("sons/HURT.ogg")
-chute.set_volume(100)
-dor.set_volume(100)
+chute.set_volume(50)
+dor.set_volume(50)
 chute.set_repeat(0)
 dor.set_repeat(0)
 
@@ -207,10 +199,10 @@ player_2["attack"].stop()
 
 trilhaMenu = Sound("sons/africa.ogg")
 trilhaMenu.set_repeat(True)
-trilhaMenu.set_volume(75)
+trilhaMenu.set_volume(10)
 trilhaMenu.stop()
 
 trilhaJogo = Sound("sons/principeali.ogg")
 trilhaJogo.set_repeat(True)
-trilhaJogo.set_volume(75)
+trilhaJogo.set_volume(10)
 trilhaJogo.stop()
